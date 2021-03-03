@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/seata_example_order?useUnicode=true&characterEncoding=utf8&autoReconnect=true&useSSL=false&serverTimezone=Asia/Shanghai
+    username: seata
+    password: seata
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*/*Mapper.xml
+  typeAliasesPackage: com.seata.example.order.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    default-statement-timeout: 30000
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    refresh: false
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      table-prefix: "sys_"
+      id-type: auto
+    banner: false
+
